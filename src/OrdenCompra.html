@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orden de compra</title>
+<!-- Latest compiled and minified CSS -->
+<script type="text/javascript" src="js/jquery-1.12.3.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+	crossorigin="anonymous"></script>
+<link href="{% static 'estilo_Orden_Compra.css' %}" rel="stylesheet">
+
+</head>
+<body>
+	<!-- Orden de compra -->
+	<div id="ordenCompra">
+		<header>
+        <div class="container">
+            <div class="col-xs-3 col-md-3">
+                <img class="mb-4" src="{% static 'img/MercaMax.png' %}" alt="" width="250" height="200">
+            </div>
+            <div class="col-xs-9 col-md-9">
+                <h4>Merca Max</h4>
+                <p id="id_orden">Orden de compra #: 1</p>
+                <p id="fecha">Fecha/Hora:</p>
+                <p id="dirección">Dirección: Popayán - Cauca</p>
+            </div>
+        </div>
+        <div class="container" id="datosPRoveedor">
+            <div class="col-xs-12 col-md-12">
+                <h4>Datos Cliente</h4>
+
+                
+                <p id ="nombre_usuario">Nombre:{{ usuario.username }}</p>
+                <p id ="cedula_usuario">Cédula:</p>
+                <p id ="telefono">Telefono:</p>
+                <p id="email">Email:{{ usuario.email }}</p>
+                
+            </div>
+        </div>
+    </header>    
+</section>
+
+    <!-- Cuerpo -->
+<section>
+    <div class="container">
+        <div class="col-xs-12 col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#id</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Total</th>
+                        <td>Eliminar</td>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <tr>
+                        <td>{{ producto.id }}</td> <!--Id-->
+                        <td>{{ producto.nombre}}</td> <!--Nombre-->
+                        <td>{{orden.cantidad}}</td> <!--Cantidad-->
+                        <td>{{ producto.precio }}</td>  <!--Precio Unitario-->
+                        <td>$ {{orden.total}}</td> <!--Total-->
+                        <td><button type="button" class="btn btn-danger">Remover</button></td>
+                     
+                    
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="col-xs-5 col-md-5">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Total a pagar</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    
+                        <td>$ 505</td> 
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <tr>
+                    
+                    <td><a class="btn btn-success" href="{% url 'stock-productos' %}">Agregar más Productos</a></td>
+                    <td><a class="btn btn-success" href="{% url 'lista-ordenes' %}">Guardar Orden</a></td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+</footer>
+</div>
+{% endblock contenido %}

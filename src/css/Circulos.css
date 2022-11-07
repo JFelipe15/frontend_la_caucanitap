@@ -1,0 +1,6 @@
+element.style {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 32.3333% 32.3333% 32.3333%;
+    padding: 12px;
+}
